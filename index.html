@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps Lab 1 — My Portfolio</title>
+    <title>Portfolio - Nguyễn Thị Kim Dung</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -18,57 +18,81 @@
         .container {
             background: white;
             border-radius: 16px;
-            padding: 48px;
+            padding: 40px;
             max-width: 600px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             text-align: center;
         }
-        h1 { color: #667eea; margin-bottom: 8px; font-size: 32px; }
-        h2 { color: #764ba2; margin-bottom: 24px; font-size: 18px; font-weight: normal; }
+        
+        /* Cấu trúc flexbox để đưa ảnh và tên nằm cạnh nhau */
+        .header-profile {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px; /* Khoảng cách giữa ảnh và chữ */
+            margin-bottom: 24px;
+            text-align: left;
+        }
+        
+        /* Căn chỉnh ảnh avatar bo tròn */
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #667eea;
+        }
+
+        h1 { color: #667eea; font-size: 28px; margin-bottom: 5px; }
+        h2 { color: #764ba2; font-size: 16px; font-weight: normal; margin: 0; }
+        
         .info { background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 16px 0; text-align: left; }
         .info p { margin: 8px 0; }
+        
         .badge {
             display: inline-block;
             background: #667eea;
             color: white;
-            padding: 6px 14px;
+            padding: 10px 20px;
             border-radius: 20px;
-            font-size: 14px;
-            margin: 4px;
+            font-size: 15px;
+            margin: 6px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+            font-weight: 500;
         }
-        .footer { margin-top: 24px; font-size: 13px; color: #999; }
-        .status { color: #38a169; font-weight: bold; }
+        .badge:hover {
+            background: #5a6fd6;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1> Nguyễn Thị Kim Dung!</h1>
-        <h2>Lab 1 — Trải nghiệm CI/CD Pipeline</h2>
+        
+        <!-- Phần chứa ảnh và tên nằm cạnh nhau -->
+        <div class="header-profile">
+            <!-- Đổi "avatar.jpg" thành tên file ảnh thực tế của bạn -->
+            <img src="avatar.png" alt="Avatar" class="avatar">
+            <div>
+                <h1>Nguyễn Thị Kim Dung</h1>
+                <h2>Software Engineering Portfolio</h2>
+            </div>
+        </div>
 
         <div class="info">
-            <p> <strong>Bài học:</strong> DevOps Lab 1 — Tổng quan</p>
-            <p> <strong>Deploy bởi:</strong> GitHub Actions CI/CD</p>
-            <p> <strong>Ngày deploy:</strong> <span id="date"></span></p>
-            <p> <strong>Pipeline status:</strong> <span class="status"> Automated</span></p>
+            <p> <strong>Mục tiêu:</strong> Trở thành Kỹ sư phần mềm / Chuyên viên Kiểm thử (QA/QC)</p>
+            <p> <strong>Tình trạng:</strong> Đang sẵn sàng nhận việc / Thực tập</p>
         </div>
 
         <div>
-            <span class="badge">HTML5</span>
-            <span class="badge">CSS3</span>
-            <span class="badge">Git</span>
-            <span class="badge">GitHub Actions</span>
-            <span class="badge">CI/CD</span>
-            <span class="badge">DevOps</span>
-        </div>
-
-        <div class="footer">
-            <p>Deployed automatically via GitHub Actions Pipeline</p>
-            <p> Push code → CI Build → Auto Deploy → Live! </p>
+            <a href="ca-nhan.html" class="badge">👤 Thông tin cá nhân</a>
+            <a href="hoc-van.html" class="badge">🎓 Học vấn & Bằng cấp</a>
+            <a href="nang-luc.html" class="badge">💻 Năng lực & Kỹ năng</a>
+            <a href="du-an.html" class="badge">🚀 Dự án & Kinh nghiệm</a>
         </div>
     </div>
-
-    <script>
-        document.getElementById('date').textContent = new Date().toLocaleDateString('vi-VN');
-    </script>
 </body>
 </html>
