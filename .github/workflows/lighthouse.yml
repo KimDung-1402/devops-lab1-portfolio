@@ -1,0 +1,19 @@
+name: Lighthouse CI Audit
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Chạy Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          staticDistDir: ./ # Chỉ định thư mục chứa file HTML của bạn (ở đây là thư mục gốc)
+          temporaryPublicStorage: true # Tự động tạo một đường link tạm thời để xem báo cáo đồ họa
+          uploadArtifacts: true # Lưu báo cáo dạng file HTML vào GitHub để tải về
